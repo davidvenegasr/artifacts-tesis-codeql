@@ -1,0 +1,4884 @@
+{
+  "$schema" : "https://json.schemastore.org/sarif-2.1.0.json",
+  "version" : "2.1.0",
+  "runs" : [ {
+    "tool" : {
+      "driver" : {
+        "name" : "CodeQL",
+        "organization" : "GitHub",
+        "semanticVersion" : "2.12.0",
+        "rules" : [ {
+          "id" : "cpp/dead-code-condition",
+          "name" : "cpp/dead-code-condition",
+          "shortDescription" : {
+            "text" : "Branching condition always evaluates to same value"
+          },
+          "fullDescription" : {
+            "text" : "The condition of the branching statement always evaluates to the same value. This means that only one branch will ever be executed."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "external/cwe/cwe-561" ],
+            "description" : "The condition of the branching statement always evaluates to the same value. This means that only one branch will ever be executed.",
+            "id" : "cpp/dead-code-condition",
+            "kind" : "problem",
+            "name" : "Branching condition always evaluates to same value",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "cpp/dead-code-function",
+          "name" : "cpp/dead-code-function",
+          "shortDescription" : {
+            "text" : "Function is never called"
+          },
+          "fullDescription" : {
+            "text" : "Unused functions may increase object size, decrease readability, and create the possibility of misuse."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "maintainability", "external/cwe/cwe-561" ],
+            "description" : "Unused functions may increase object size, decrease readability, and create the possibility of misuse.",
+            "id" : "cpp/dead-code-function",
+            "kind" : "problem",
+            "name" : "Function is never called",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "cpp/dead-code-goto",
+          "name" : "cpp/dead-code-goto",
+          "shortDescription" : {
+            "text" : "Dead code due to goto or break statement"
+          },
+          "fullDescription" : {
+            "text" : "A goto or break statement is followed by unreachable code."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "maintainability", "external/cwe/cwe-561" ],
+            "description" : "A goto or break statement is followed by unreachable code.",
+            "id" : "cpp/dead-code-goto",
+            "kind" : "problem",
+            "name" : "Dead code due to goto or break statement",
+            "precision" : "high",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "cpp/descriptor-may-not-be-closed",
+          "name" : "cpp/descriptor-may-not-be-closed",
+          "shortDescription" : {
+            "text" : "Open descriptor may not be closed"
+          },
+          "fullDescription" : {
+            "text" : "Failing to close resources in the function that opened them makes it difficult to avoid and detect resource leaks."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "efficiency", "security", "external/cwe/cwe-775" ],
+            "description" : "Failing to close resources in the function that opened them makes it difficult to avoid and detect resource leaks.",
+            "id" : "cpp/descriptor-may-not-be-closed",
+            "kind" : "problem",
+            "name" : "Open descriptor may not be closed",
+            "problem.severity" : "warning",
+            "security-severity" : "7.8"
+          }
+        }, {
+          "id" : "cpp/descriptor-never-closed",
+          "name" : "cpp/descriptor-never-closed",
+          "shortDescription" : {
+            "text" : "Open descriptor never closed"
+          },
+          "fullDescription" : {
+            "text" : "Functions that always return before closing the socket they opened leak resources."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "efficiency", "security", "external/cwe/cwe-775" ],
+            "description" : "Functions that always return before closing the socket they opened leak resources.",
+            "id" : "cpp/descriptor-never-closed",
+            "kind" : "problem",
+            "name" : "Open descriptor never closed",
+            "problem.severity" : "warning",
+            "security-severity" : "7.8"
+          }
+        }, {
+          "id" : "cpp/file-may-not-be-closed",
+          "name" : "cpp/file-may-not-be-closed",
+          "shortDescription" : {
+            "text" : "Open file may not be closed"
+          },
+          "fullDescription" : {
+            "text" : "A function may return before closing a file that was opened in the function. Closing resources in the same function that opened them ties the lifetime of the resource to that of the function call, making it easier to avoid and detect resource leaks."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "efficiency", "security", "external/cwe/cwe-775" ],
+            "description" : "A function may return before closing a file that was opened in the function. Closing resources in the same function that opened them ties the lifetime of the resource to that of the function call, making it easier to avoid and detect resource leaks.",
+            "id" : "cpp/file-may-not-be-closed",
+            "kind" : "problem",
+            "name" : "Open file may not be closed",
+            "problem.severity" : "warning",
+            "security-severity" : "7.8"
+          }
+        }, {
+          "id" : "cpp/file-never-closed",
+          "name" : "cpp/file-never-closed",
+          "shortDescription" : {
+            "text" : "Open file is not closed"
+          },
+          "fullDescription" : {
+            "text" : "A function always returns before closing a file that was opened in the function. Closing resources in the same function that opened them ties the lifetime of the resource to that of the function call, making it easier to avoid and detect resource leaks."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "efficiency", "security", "external/cwe/cwe-775" ],
+            "description" : "A function always returns before closing a file that was opened in the function. Closing resources in the same function that opened them ties the lifetime of the resource to that of the function call, making it easier to avoid and detect resource leaks.",
+            "id" : "cpp/file-never-closed",
+            "kind" : "problem",
+            "name" : "Open file is not closed",
+            "problem.severity" : "warning",
+            "security-severity" : "7.8"
+          }
+        }, {
+          "id" : "cpp/global-use-before-init",
+          "name" : "cpp/global-use-before-init",
+          "shortDescription" : {
+            "text" : "Global variable may be used before initialization"
+          },
+          "fullDescription" : {
+            "text" : "Using an uninitialized variable may lead to undefined results."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "security", "external/cwe/cwe-457" ],
+            "description" : "Using an uninitialized variable may lead to undefined results.",
+            "id" : "cpp/global-use-before-init",
+            "kind" : "problem",
+            "name" : "Global variable may be used before initialization",
+            "problem.severity" : "warning",
+            "security-severity" : "7.8"
+          }
+        }, {
+          "id" : "cpp/inconsistent-nullness-testing",
+          "name" : "cpp/inconsistent-nullness-testing",
+          "shortDescription" : {
+            "text" : "Inconsistent null check of pointer"
+          },
+          "fullDescription" : {
+            "text" : "A dereferenced pointer is not checked for nullness in this location, but it is checked in other locations. Dereferencing a null pointer leads to undefined results."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "security", "external/cwe/cwe-476" ],
+            "description" : "A dereferenced pointer is not checked for nullness in this location, but it is checked in other locations. Dereferencing a null pointer leads to undefined results.",
+            "id" : "cpp/inconsistent-nullness-testing",
+            "kind" : "problem",
+            "name" : "Inconsistent null check of pointer",
+            "problem.severity" : "warning",
+            "security-severity" : "7.5"
+          }
+        }, {
+          "id" : "cpp/initialization-not-run",
+          "name" : "cpp/initialization-not-run",
+          "shortDescription" : {
+            "text" : "Initialization code not run"
+          },
+          "fullDescription" : {
+            "text" : "Not running initialization code may lead to unexpected behavior."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "security", "external/cwe/cwe-456" ],
+            "description" : "Not running initialization code may lead to unexpected behavior.",
+            "id" : "cpp/initialization-not-run",
+            "kind" : "problem",
+            "name" : "Initialization code not run",
+            "problem.severity" : "warning",
+            "security-severity" : "7.5"
+          }
+        }, {
+          "id" : "cpp/large-parameter",
+          "name" : "cpp/large-parameter",
+          "shortDescription" : {
+            "text" : "Large object passed by value"
+          },
+          "fullDescription" : {
+            "text" : "An object larger than 64 bytes is passed by value to a function. Passing large objects by value unnecessarily use up scarce stack space, increase the cost of calling a function and can be a security risk. Use a const pointer to the object instead."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "note"
+          },
+          "properties" : {
+            "tags" : [ "efficiency", "readability", "statistical", "non-attributable" ],
+            "description" : "An object larger than 64 bytes is passed by value to a function. Passing large objects by value unnecessarily use up scarce stack space, increase the cost of calling a function and can be a security risk. Use a const pointer to the object instead.",
+            "id" : "cpp/large-parameter",
+            "kind" : "problem",
+            "name" : "Large object passed by value",
+            "precision" : "very-high",
+            "problem.severity" : "recommendation"
+          }
+        }, {
+          "id" : "cpp/late-negative-test",
+          "name" : "cpp/late-negative-test",
+          "shortDescription" : {
+            "text" : "Pointer offset used before it is checked"
+          },
+          "fullDescription" : {
+            "text" : "Accessing a pointer or array using an offset before checking if the value is positive may result in unexpected behavior."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "security", "external/cwe/cwe-823" ],
+            "description" : "Accessing a pointer or array using an offset before\n              checking if the value is positive\n              may result in unexpected behavior.",
+            "id" : "cpp/late-negative-test",
+            "kind" : "problem",
+            "name" : "Pointer offset used before it is checked",
+            "problem.severity" : "warning",
+            "security-severity" : "9.3"
+          }
+        }, {
+          "id" : "cpp/memory-may-not-be-freed",
+          "name" : "cpp/memory-may-not-be-freed",
+          "shortDescription" : {
+            "text" : "Memory may not be freed"
+          },
+          "fullDescription" : {
+            "text" : "A function may return before freeing memory that was allocated in the function. Freeing all memory allocated in the function before returning ties the lifetime of the memory blocks to that of the function call, making it easier to avoid and detect memory leaks."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "efficiency", "security", "external/cwe/cwe-401" ],
+            "description" : "A function may return before freeing memory that was allocated in the function. Freeing all memory allocated in the function before returning ties the lifetime of the memory blocks to that of the function call, making it easier to avoid and detect memory leaks.",
+            "id" : "cpp/memory-may-not-be-freed",
+            "kind" : "problem",
+            "name" : "Memory may not be freed",
+            "problem.severity" : "warning",
+            "security-severity" : "7.5"
+          }
+        }, {
+          "id" : "cpp/memory-never-freed",
+          "name" : "cpp/memory-never-freed",
+          "shortDescription" : {
+            "text" : "Memory is never freed"
+          },
+          "fullDescription" : {
+            "text" : "A function always returns before freeing memory that was allocated in the function. Freeing all memory allocated in the function before returning ties the lifetime of the memory blocks to that of the function call, making it easier to avoid and detect memory leaks."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "efficiency", "security", "external/cwe/cwe-401" ],
+            "description" : "A function always returns before freeing memory that was allocated in the function. Freeing all memory allocated in the function before returning ties the lifetime of the memory blocks to that of the function call, making it easier to avoid and detect memory leaks.",
+            "id" : "cpp/memory-never-freed",
+            "kind" : "problem",
+            "name" : "Memory is never freed",
+            "problem.severity" : "warning",
+            "security-severity" : "7.5"
+          }
+        }, {
+          "id" : "cpp/missing-check-scanf",
+          "name" : "cpp/missing-check-scanf",
+          "shortDescription" : {
+            "text" : "Missing return-value check for a 'scanf'-like function"
+          },
+          "fullDescription" : {
+            "text" : "Failing to check that a call to 'scanf' actually writes to an output variable can lead to unexpected behavior at reading time."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "security", "correctness", "external/cwe/cwe-252", "external/cwe/cwe-253" ],
+            "description" : "Failing to check that a call to 'scanf' actually writes to an\n              output variable can lead to unexpected behavior at reading time.",
+            "id" : "cpp/missing-check-scanf",
+            "kind" : "problem",
+            "name" : "Missing return-value check for a 'scanf'-like function",
+            "precision" : "medium",
+            "problem.severity" : "warning",
+            "security-severity" : "7.5"
+          }
+        }, {
+          "id" : "cpp/missing-negativity-test",
+          "name" : "cpp/missing-negativity-test",
+          "shortDescription" : {
+            "text" : "Unchecked return value used as offset"
+          },
+          "fullDescription" : {
+            "text" : "Using a return value as a pointer offset without checking that the value is positive may lead to buffer overruns."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "security", "external/cwe/cwe-823" ],
+            "description" : "Using a return value as a pointer offset without checking that the value is positive\n               may lead to buffer overruns.",
+            "id" : "cpp/missing-negativity-test",
+            "kind" : "problem",
+            "name" : "Unchecked return value used as offset",
+            "problem.severity" : "warning",
+            "security-severity" : "9.3"
+          }
+        }, {
+          "id" : "cpp/missing-null-test",
+          "name" : "cpp/missing-null-test",
+          "shortDescription" : {
+            "text" : "Returned pointer not checked"
+          },
+          "fullDescription" : {
+            "text" : "Dereferencing an untested value from a function that can return null may lead to undefined behavior."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "note"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "security", "external/cwe/cwe-476" ],
+            "description" : "Dereferencing an untested value from a function that can return null may lead to undefined behavior.",
+            "id" : "cpp/missing-null-test",
+            "kind" : "problem",
+            "name" : "Returned pointer not checked",
+            "problem.severity" : "recommendation",
+            "security-severity" : "7.5"
+          }
+        }, {
+          "id" : "cpp/new-array-delete-mismatch",
+          "name" : "cpp/new-array-delete-mismatch",
+          "shortDescription" : {
+            "text" : "'new[]' array freed with 'delete'"
+          },
+          "fullDescription" : {
+            "text" : "An array allocated with 'new[]' is being freed using 'delete'. Behavior in such cases is undefined and should be avoided. Use 'delete[]' when freeing arrays allocated with 'new[]'."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "reliability" ],
+            "description" : "An array allocated with 'new[]' is being freed using 'delete'. Behavior in such cases is undefined and should be avoided. Use 'delete[]' when freeing arrays allocated with 'new[]'.",
+            "id" : "cpp/new-array-delete-mismatch",
+            "kind" : "problem",
+            "name" : "'new[]' array freed with 'delete'",
+            "precision" : "high",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "cpp/new-delete-array-mismatch",
+          "name" : "cpp/new-delete-array-mismatch",
+          "shortDescription" : {
+            "text" : "'new' object freed with 'delete[]'"
+          },
+          "fullDescription" : {
+            "text" : "An object that was allocated with 'new' is being freed using 'delete[]'. Behavior in such cases is undefined and should be avoided. Use 'delete' instead."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "reliability" ],
+            "description" : "An object that was allocated with 'new' is being freed using 'delete[]'. Behavior in such cases is undefined and should be avoided. Use 'delete' instead.",
+            "id" : "cpp/new-delete-array-mismatch",
+            "kind" : "problem",
+            "name" : "'new' object freed with 'delete[]'",
+            "precision" : "high",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "cpp/new-free-mismatch",
+          "name" : "cpp/new-free-mismatch",
+          "shortDescription" : {
+            "text" : "Mismatching new/free or malloc/delete"
+          },
+          "fullDescription" : {
+            "text" : "An object that was allocated with 'malloc' or 'new' is being freed using a mismatching 'free' or 'delete'."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "security", "external/cwe/cwe-401" ],
+            "description" : "An object that was allocated with 'malloc' or 'new' is being freed using a mismatching 'free' or 'delete'.",
+            "id" : "cpp/new-free-mismatch",
+            "kind" : "problem",
+            "name" : "Mismatching new/free or malloc/delete",
+            "precision" : "high",
+            "problem.severity" : "warning",
+            "security-severity" : "7.5"
+          }
+        }, {
+          "id" : "cpp/not-initialised",
+          "name" : "cpp/not-initialised",
+          "shortDescription" : {
+            "text" : "Variable not initialized before use"
+          },
+          "fullDescription" : {
+            "text" : "Using an uninitialized variable may lead to undefined results."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "external/cwe/cwe-457" ],
+            "description" : "Using an uninitialized variable may lead to undefined results.",
+            "id" : "cpp/not-initialised",
+            "kind" : "problem",
+            "name" : "Variable not initialized before use",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "cpp/overflow-calculated",
+          "name" : "cpp/overflow-calculated",
+          "shortDescription" : {
+            "text" : "Buffer not sufficient for string"
+          },
+          "fullDescription" : {
+            "text" : "A buffer allocated using 'malloc' may not have enough space for a string that is being copied into it. The operation can cause a buffer overrun. Make sure that the buffer contains enough room for the string (including the zero terminator)."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "security", "external/cwe/cwe-131", "external/cwe/cwe-120" ],
+            "description" : "A buffer allocated using 'malloc' may not have enough space for a string that is being copied into it. The operation can cause a buffer overrun. Make sure that the buffer contains enough room for the string (including the zero terminator).",
+            "id" : "cpp/overflow-calculated",
+            "kind" : "problem",
+            "name" : "Buffer not sufficient for string",
+            "problem.severity" : "warning",
+            "security-severity" : "9.8"
+          }
+        }, {
+          "id" : "cpp/overflow-destination",
+          "name" : "cpp/overflow-destination",
+          "shortDescription" : {
+            "text" : "Copy function using source size"
+          },
+          "fullDescription" : {
+            "text" : "Calling a copy operation with a size derived from the source buffer instead of the destination buffer may result in a buffer overflow."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "security", "external/cwe/cwe-119", "external/cwe/cwe-131" ],
+            "description" : "Calling a copy operation with a size derived from the source\n              buffer instead of the destination buffer may result in a buffer overflow.",
+            "id" : "cpp/overflow-destination",
+            "kind" : "path-problem",
+            "name" : "Copy function using source size",
+            "precision" : "low",
+            "problem.severity" : "warning",
+            "security-severity" : "9.3"
+          }
+        }, {
+          "id" : "cpp/static-buffer-overflow",
+          "name" : "cpp/static-buffer-overflow",
+          "shortDescription" : {
+            "text" : "Static array access may cause overflow"
+          },
+          "fullDescription" : {
+            "text" : "Exceeding the size of a static array during write or access operations may result in a buffer overflow."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "security", "external/cwe/cwe-119", "external/cwe/cwe-131" ],
+            "description" : "Exceeding the size of a static array during write or access operations\n              may result in a buffer overflow.",
+            "id" : "cpp/static-buffer-overflow",
+            "kind" : "problem",
+            "name" : "Static array access may cause overflow",
+            "precision" : "high",
+            "problem.severity" : "warning",
+            "security-severity" : "9.3"
+          }
+        }, {
+          "id" : "cpp/return-stack-allocated-object",
+          "name" : "cpp/return-stack-allocated-object",
+          "shortDescription" : {
+            "text" : "Pointer to stack object used as return value"
+          },
+          "fullDescription" : {
+            "text" : "Using a pointer to stack memory after the function has returned gives undefined results."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "security", "external/cwe/cwe-562" ],
+            "deprecated" : "This query is not suitable for production use and has been deprecated. Use\n             cpp/return-stack-allocated-memory instead.",
+            "description" : "Using a pointer to stack memory after the function has returned gives undefined results.",
+            "id" : "cpp/return-stack-allocated-object",
+            "kind" : "problem",
+            "name" : "Pointer to stack object used as return value",
+            "problem.severity" : "warning",
+            "security-severity" : "2.1"
+          }
+        }, {
+          "id" : "cpp/return-value-ignored",
+          "name" : "cpp/return-value-ignored",
+          "shortDescription" : {
+            "text" : "Return value of a function is ignored"
+          },
+          "fullDescription" : {
+            "text" : "A call to a function ignores its return value, but at least 90% of the total number of calls to the function check the return value. Check the return value of functions consistently, especially for functions like 'fread' or the 'scanf' functions that return the status of the operation."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "note"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "external/cwe/cwe-252" ],
+            "description" : "A call to a function ignores its return value, but at least 90% of the total number of calls to the function check the return value. Check the return value of functions consistently, especially for functions like 'fread' or the 'scanf' functions that return the status of the operation.",
+            "id" : "cpp/return-value-ignored",
+            "kind" : "problem",
+            "name" : "Return value of a function is ignored",
+            "precision" : "medium",
+            "problem.severity" : "recommendation"
+          }
+        }, {
+          "id" : "cpp/allocation-too-small",
+          "name" : "cpp/allocation-too-small",
+          "shortDescription" : {
+            "text" : "Not enough memory allocated for pointer type"
+          },
+          "fullDescription" : {
+            "text" : "Calling 'malloc', 'calloc' or 'realloc' without allocating enough memory to contain an instance of the type of the pointer may result in a buffer overflow"
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "security", "external/cwe/cwe-131", "external/cwe/cwe-122" ],
+            "description" : "Calling 'malloc', 'calloc' or 'realloc' without allocating enough memory to contain\n              an instance of the type of the pointer may result in a buffer overflow",
+            "id" : "cpp/allocation-too-small",
+            "kind" : "problem",
+            "name" : "Not enough memory allocated for pointer type",
+            "precision" : "medium",
+            "problem.severity" : "warning",
+            "security-severity" : "8.1"
+          }
+        }, {
+          "id" : "cpp/suspicious-allocation-size",
+          "name" : "cpp/suspicious-allocation-size",
+          "shortDescription" : {
+            "text" : "Not enough memory allocated for array of pointer type"
+          },
+          "fullDescription" : {
+            "text" : "Calling 'malloc', 'calloc' or 'realloc' without allocating enough memory to contain multiple instances of the type of the pointer may result in a buffer overflow"
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "security", "external/cwe/cwe-131", "external/cwe/cwe-122" ],
+            "description" : "Calling 'malloc', 'calloc' or 'realloc' without allocating enough memory to contain\n              multiple instances of the type of the pointer may result in a buffer overflow",
+            "id" : "cpp/suspicious-allocation-size",
+            "kind" : "problem",
+            "name" : "Not enough memory allocated for array of pointer type",
+            "precision" : "medium",
+            "problem.severity" : "warning",
+            "security-severity" : "8.1"
+          }
+        }, {
+          "id" : "cpp/unused-variable",
+          "name" : "cpp/unused-variable",
+          "shortDescription" : {
+            "text" : "Variable is assigned a value that is never read"
+          },
+          "fullDescription" : {
+            "text" : "Assigning a value to a variable that is not used may indicate an error in the code."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "maintainability", "external/cwe/cwe-563" ],
+            "description" : "Assigning a value to a variable that is not used may indicate an error in the code.",
+            "id" : "cpp/unused-variable",
+            "kind" : "problem",
+            "name" : "Variable is assigned a value that is never read",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "cpp/use-after-free",
+          "name" : "cpp/use-after-free",
+          "shortDescription" : {
+            "text" : "Potential use after free"
+          },
+          "fullDescription" : {
+            "text" : "An allocated memory block is used after it has been freed. Behavior in such cases is undefined and can cause memory corruption."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "security", "external/cwe/cwe-416" ],
+            "description" : "An allocated memory block is used after it has been freed. Behavior in such cases is undefined and can cause memory corruption.",
+            "id" : "cpp/use-after-free",
+            "kind" : "problem",
+            "name" : "Potential use after free",
+            "problem.severity" : "warning",
+            "security-severity" : "9.3"
+          }
+        }, {
+          "id" : "cpp/non-constant-format",
+          "name" : "cpp/non-constant-format",
+          "shortDescription" : {
+            "text" : "Non-constant format string"
+          },
+          "fullDescription" : {
+            "text" : "Passing a non-constant 'format' string to a printf-like function can lead to a mismatch between the number of arguments defined by the 'format' and the number of arguments actually passed to the function. If the format string ultimately stems from an untrusted source, this can be used for exploits."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "note"
+          },
+          "properties" : {
+            "tags" : [ "maintainability", "correctness", "security", "external/cwe/cwe-134" ],
+            "description" : "Passing a non-constant 'format' string to a printf-like function can lead\n              to a mismatch between the number of arguments defined by the 'format' and the number\n              of arguments actually passed to the function. If the format string ultimately stems\n              from an untrusted source, this can be used for exploits.",
+            "id" : "cpp/non-constant-format",
+            "kind" : "problem",
+            "name" : "Non-constant format string",
+            "precision" : "high",
+            "problem.severity" : "recommendation",
+            "security-severity" : "9.3"
+          }
+        }, {
+          "id" : "cpp/overflowing-snprintf",
+          "name" : "cpp/overflowing-snprintf",
+          "shortDescription" : {
+            "text" : "Potentially overflowing call to snprintf"
+          },
+          "fullDescription" : {
+            "text" : "Using the return value from snprintf without proper checks can cause overflow."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "security", "external/cwe/cwe-190", "external/cwe/cwe-253" ],
+            "description" : "Using the return value from snprintf without proper checks can cause overflow.",
+            "id" : "cpp/overflowing-snprintf",
+            "kind" : "problem",
+            "name" : "Potentially overflowing call to snprintf",
+            "precision" : "high",
+            "problem.severity" : "warning",
+            "security-severity" : "8.1"
+          }
+        }, {
+          "id" : "cpp/too-many-format-arguments",
+          "name" : "cpp/too-many-format-arguments",
+          "shortDescription" : {
+            "text" : "Too many arguments to formatting function"
+          },
+          "fullDescription" : {
+            "text" : "A printf-like function called with too many arguments will ignore the excess arguments and output less than might have been intended."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "note"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "correctness" ],
+            "description" : "A printf-like function called with too many arguments will\n              ignore the excess arguments and output less than might\n              have been intended.",
+            "id" : "cpp/too-many-format-arguments",
+            "kind" : "problem",
+            "name" : "Too many arguments to formatting function",
+            "precision" : "high",
+            "problem.severity" : "recommendation"
+          }
+        }, {
+          "id" : "cpp/wrong-number-format-arguments",
+          "name" : "cpp/wrong-number-format-arguments",
+          "shortDescription" : {
+            "text" : "Too few arguments to formatting function"
+          },
+          "fullDescription" : {
+            "text" : "Calling a printf-like function with too few arguments can be a source of security issues."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "security", "external/cwe/cwe-234", "external/cwe/cwe-685" ],
+            "description" : "Calling a printf-like function with too few arguments can be\n              a source of security issues.",
+            "id" : "cpp/wrong-number-format-arguments",
+            "kind" : "problem",
+            "name" : "Too few arguments to formatting function",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "5.0"
+          }
+        }, {
+          "id" : "cpp/wrong-type-format-argument",
+          "name" : "cpp/wrong-type-format-argument",
+          "shortDescription" : {
+            "text" : "Wrong type of arguments to formatting function"
+          },
+          "fullDescription" : {
+            "text" : "Calling a printf-like function with the wrong type of arguments causes unpredictable behavior."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "security", "external/cwe/cwe-686" ],
+            "description" : "Calling a printf-like function with the wrong type of arguments causes unpredictable\n              behavior.",
+            "id" : "cpp/wrong-type-format-argument",
+            "kind" : "problem",
+            "name" : "Wrong type of arguments to formatting function",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "7.5"
+          }
+        }, {
+          "id" : "cpp/alloca-in-loop",
+          "name" : "cpp/alloca-in-loop",
+          "shortDescription" : {
+            "text" : "Call to alloca in a loop"
+          },
+          "fullDescription" : {
+            "text" : "Using alloca in a loop can lead to a stack overflow"
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "security", "external/cwe/cwe-770" ],
+            "description" : "Using alloca in a loop can lead to a stack overflow",
+            "id" : "cpp/alloca-in-loop",
+            "kind" : "problem",
+            "name" : "Call to alloca in a loop",
+            "precision" : "high",
+            "problem.severity" : "warning",
+            "security-severity" : "7.5"
+          }
+        }, {
+          "id" : "cpp/improper-null-termination",
+          "name" : "cpp/improper-null-termination",
+          "shortDescription" : {
+            "text" : "Potential improper null termination"
+          },
+          "fullDescription" : {
+            "text" : "Using a string that may not be null terminated as an argument to a string function can result in buffer overflow or buffer over-read."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-170", "external/cwe/cwe-665" ],
+            "description" : "Using a string that may not be null terminated as an argument\n              to a string function can result in buffer overflow or buffer over-read.",
+            "id" : "cpp/improper-null-termination",
+            "kind" : "problem",
+            "name" : "Potential improper null termination",
+            "problem.severity" : "warning",
+            "security-severity" : "7.8"
+          }
+        }, {
+          "id" : "cpp/network-to-host-function-as-array-bound",
+          "name" : "cpp/network-to-host-function-as-array-bound",
+          "shortDescription" : {
+            "text" : "Untrusted network-to-host usage"
+          },
+          "fullDescription" : {
+            "text" : "Using the result of a network-to-host byte order function, such as ntohl, as an array bound or length value without checking it may result in buffer overflows or other vulnerabilities."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "description" : "Using the result of a network-to-host byte order function, such as ntohl, as an\n              array bound or length value without checking it may result in buffer overflows or\n              other vulnerabilities.",
+            "id" : "cpp/network-to-host-function-as-array-bound",
+            "kind" : "problem",
+            "name" : "Untrusted network-to-host usage",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "cpp/more-64-bit-waste",
+          "name" : "cpp/more-64-bit-waste",
+          "shortDescription" : {
+            "text" : "Padding increased in 64-bit migration"
+          },
+          "fullDescription" : {
+            "text" : "Highlights structs for which the amount of padding would increase when migrating from a 32-bit architecture to 64-bit."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "maintainability", "portability" ],
+            "description" : "Highlights structs for which the amount of padding would increase when migrating from a 32-bit architecture to 64-bit.",
+            "id" : "cpp/more-64-bit-waste",
+            "kind" : "problem",
+            "name" : "Padding increased in 64-bit migration",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "cpp/non-portable-printf",
+          "name" : "cpp/non-portable-printf",
+          "shortDescription" : {
+            "text" : "Non-portable call to printf"
+          },
+          "fullDescription" : {
+            "text" : "When using a format specifier like %d (\"int\"), on a 32-bit architecture it's acceptable to pass a long since it's of the same size; when migrating to a 64-bit architecture this becomes problematic. Similar problems exist when printing pointers using 32-bit-wide format specifiers."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "maintainability", "portability" ],
+            "description" : "When using a format specifier like %d (\"int\"), on a 32-bit architecture it's acceptable to pass a long since it's of the same size;\n    when migrating to a 64-bit architecture this becomes problematic. Similar problems exist when printing pointers using 32-bit-wide format specifiers.",
+            "id" : "cpp/non-portable-printf",
+            "kind" : "problem",
+            "name" : "Non-portable call to printf",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "cpp/suboptimal-64-bit-type",
+          "name" : "cpp/suboptimal-64-bit-type",
+          "shortDescription" : {
+            "text" : "Suboptimal type definition"
+          },
+          "fullDescription" : {
+            "text" : "Highlights structs whose members are not laid out optimally, in the sense that by reordering them one could reduce the amount of internal padding on a 64-bit architecture."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "note"
+          },
+          "properties" : {
+            "tags" : [ "efficiency" ],
+            "description" : "Highlights structs whose members are not laid out optimally, in the sense\n    that by reordering them one could reduce the amount of internal padding on a 64-bit architecture.",
+            "id" : "cpp/suboptimal-64-bit-type",
+            "kind" : "problem",
+            "name" : "Suboptimal type definition",
+            "problem.severity" : "recommendation"
+          }
+        }, {
+          "id" : "cpp/pointer-overflow-check",
+          "name" : "cpp/pointer-overflow-check",
+          "shortDescription" : {
+            "text" : "Pointer overflow check"
+          },
+          "fullDescription" : {
+            "text" : "Adding a value to a pointer to check if it overflows relies on undefined behavior and may lead to memory corruption."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "security", "external/cwe/cwe-758" ],
+            "description" : "Adding a value to a pointer to check if it overflows relies\n              on undefined behavior and may lead to memory corruption.",
+            "id" : "cpp/pointer-overflow-check",
+            "kind" : "problem",
+            "name" : "Pointer overflow check",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "2.1"
+          }
+        }, {
+          "id" : "cpp/potential-buffer-overflow",
+          "name" : "cpp/potential-buffer-overflow",
+          "shortDescription" : {
+            "text" : "Potential buffer overflow"
+          },
+          "fullDescription" : {
+            "text" : "Using a library function that does not check buffer bounds requires the surrounding program to be very carefully written to avoid buffer overflows."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "security", "external/cwe/cwe-676" ],
+            "deprecated" : "This query is deprecated, use\n             Potentially overrunning write (`cpp/overrunning-write`) and\n             Potentially overrunning write with float to string conversion\n             (`cpp/overrunning-write-with-float`) instead.",
+            "description" : "Using a library function that does not check buffer bounds\n              requires the surrounding program to be very carefully written\n              to avoid buffer overflows.",
+            "id" : "cpp/potential-buffer-overflow",
+            "kind" : "problem",
+            "name" : "Potential buffer overflow",
+            "problem.severity" : "warning",
+            "security-severity" : "10.0"
+          }
+        }, {
+          "id" : "cpp/return-c-str-of-std-string",
+          "name" : "cpp/return-c-str-of-std-string",
+          "shortDescription" : {
+            "text" : "Return c_str of local std::string"
+          },
+          "fullDescription" : {
+            "text" : "Returning the c_str of a locally allocated std::string could cause the program to crash or behave non-deterministically because the memory is deallocated when the std::string goes out of scope."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "correctness" ],
+            "description" : "Returning the c_str of a locally allocated std::string\n   could cause the program to crash or behave non-deterministically\n   because the memory is deallocated when the std::string goes out of\n   scope.",
+            "id" : "cpp/return-c-str-of-std-string",
+            "kind" : "problem",
+            "name" : "Return c_str of local std::string",
+            "precision" : "high",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "cpp/return-stack-allocated-memory",
+          "name" : "cpp/return-stack-allocated-memory",
+          "shortDescription" : {
+            "text" : "Returning stack-allocated memory"
+          },
+          "fullDescription" : {
+            "text" : "A function returns a pointer to a stack-allocated region of memory. This memory is deallocated at the end of the function, which may lead the caller to dereference a dangling pointer."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "security", "external/cwe/cwe-825" ],
+            "description" : "A function returns a pointer to a stack-allocated region of\n              memory. This memory is deallocated at the end of the function,\n              which may lead the caller to dereference a dangling pointer.",
+            "id" : "cpp/return-stack-allocated-memory",
+            "kind" : "path-problem",
+            "name" : "Returning stack-allocated memory",
+            "precision" : "high",
+            "problem.severity" : "warning",
+            "security-severity" : "9.3"
+          }
+        }, {
+          "id" : "cpp/stack-address-escape",
+          "name" : "cpp/stack-address-escape",
+          "shortDescription" : {
+            "text" : "Local variable address stored in non-local memory"
+          },
+          "fullDescription" : {
+            "text" : "Storing the address of a local variable in non-local memory can cause a dangling pointer bug if the address is used after the function returns."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "reliability" ],
+            "description" : "Storing the address of a local variable in non-local\n              memory can cause a dangling pointer bug if the address\n              is used after the function returns.",
+            "id" : "cpp/stack-address-escape",
+            "kind" : "problem",
+            "name" : "Local variable address stored in non-local memory",
+            "precision" : "medium",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "cpp/bad-strncpy-size",
+          "name" : "cpp/bad-strncpy-size",
+          "shortDescription" : {
+            "text" : "Possibly wrong buffer size in string copy"
+          },
+          "fullDescription" : {
+            "text" : "Calling 'strncpy' with the size of the source buffer as the third argument may result in a buffer overflow."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "security", "external/cwe/cwe-676", "external/cwe/cwe-119", "external/cwe/cwe-251" ],
+            "description" : "Calling 'strncpy' with the size of the source buffer\n              as the third argument may result in a buffer overflow.",
+            "id" : "cpp/bad-strncpy-size",
+            "kind" : "problem",
+            "name" : "Possibly wrong buffer size in string copy",
+            "precision" : "medium",
+            "problem.severity" : "warning",
+            "security-severity" : "9.3"
+          }
+        }, {
+          "id" : "cpp/suspicious-call-to-memset",
+          "name" : "cpp/suspicious-call-to-memset",
+          "shortDescription" : {
+            "text" : "Suspicious call to memset"
+          },
+          "fullDescription" : {
+            "text" : "Use of memset where the size argument is computed as the size of some non-struct type. When initializing a buffer, you should specify its size as `<number of elements> * <size of one element>` to ensure portability."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "note"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "security", "external/cwe/cwe-676" ],
+            "description" : "Use of memset where the size argument is computed as the size of\n              some non-struct type. When initializing a buffer, you should specify\n              its size as `<number of elements> * <size of one element>` to ensure\n              portability.",
+            "id" : "cpp/suspicious-call-to-memset",
+            "kind" : "problem",
+            "name" : "Suspicious call to memset",
+            "precision" : "medium",
+            "problem.severity" : "recommendation",
+            "security-severity" : "10.0"
+          }
+        }, {
+          "id" : "cpp/unsafe-strncat",
+          "name" : "cpp/unsafe-strncat",
+          "shortDescription" : {
+            "text" : "Potentially unsafe call to strncat"
+          },
+          "fullDescription" : {
+            "text" : "Calling 'strncat' with an incorrect size argument may result in a buffer overflow."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "security", "external/cwe/cwe-788", "external/cwe/cwe-676", "external/cwe/cwe-119", "external/cwe/cwe-251" ],
+            "description" : "Calling 'strncat' with an incorrect size argument may result in a buffer overflow.",
+            "id" : "cpp/unsafe-strncat",
+            "kind" : "problem",
+            "name" : "Potentially unsafe call to strncat",
+            "precision" : "medium",
+            "problem.severity" : "warning",
+            "security-severity" : "9.3"
+          }
+        }, {
+          "id" : "cpp/suspicious-sizeof",
+          "name" : "cpp/suspicious-sizeof",
+          "shortDescription" : {
+            "text" : "Suspicious 'sizeof' use"
+          },
+          "fullDescription" : {
+            "text" : "Taking 'sizeof' of an array parameter is often mistakenly thought to yield the size of the underlying array, but it always yields the machine pointer size."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "security", "external/cwe/cwe-467" ],
+            "description" : "Taking 'sizeof' of an array parameter is often mistakenly thought\n              to yield the size of the underlying array, but it always yields\n              the machine pointer size.",
+            "id" : "cpp/suspicious-sizeof",
+            "kind" : "problem",
+            "name" : "Suspicious 'sizeof' use",
+            "precision" : "medium",
+            "problem.severity" : "warning",
+            "security-severity" : "8.8"
+          }
+        }, {
+          "id" : "cpp/uninitialized-local",
+          "name" : "cpp/uninitialized-local",
+          "shortDescription" : {
+            "text" : "Potentially uninitialized local variable"
+          },
+          "fullDescription" : {
+            "text" : "Reading from a local variable that has not been assigned to will typically yield garbage."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-665", "external/cwe/cwe-457" ],
+            "description" : "Reading from a local variable that has not been assigned to\n              will typically yield garbage.",
+            "id" : "cpp/uninitialized-local",
+            "kind" : "problem",
+            "name" : "Potentially uninitialized local variable",
+            "precision" : "medium",
+            "problem.severity" : "warning",
+            "security-severity" : "7.8"
+          }
+        }, {
+          "id" : "cpp/unsafe-strcat",
+          "name" : "cpp/unsafe-strcat",
+          "shortDescription" : {
+            "text" : "Potentially unsafe use of strcat"
+          },
+          "fullDescription" : {
+            "text" : "Using 'strcat' without checking the size of the source string may result in a buffer overflow"
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "security", "external/cwe/cwe-676", "external/cwe/cwe-120", "external/cwe/cwe-251" ],
+            "description" : "Using 'strcat' without checking the size of the source string\n              may result in a buffer overflow",
+            "id" : "cpp/unsafe-strcat",
+            "kind" : "problem",
+            "name" : "Potentially unsafe use of strcat",
+            "precision" : "medium",
+            "problem.severity" : "warning",
+            "security-severity" : "9.8"
+          }
+        }, {
+          "id" : "cpp/using-expired-stack-address",
+          "name" : "cpp/using-expired-stack-address",
+          "shortDescription" : {
+            "text" : "Use of expired stack-address"
+          },
+          "fullDescription" : {
+            "text" : "Accessing the stack-allocated memory of a function after it has returned can lead to memory corruption."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "security", "external/cwe/cwe-825" ],
+            "description" : "Accessing the stack-allocated memory of a function\n              after it has returned can lead to memory corruption.",
+            "id" : "cpp/using-expired-stack-address",
+            "kind" : "path-problem",
+            "name" : "Use of expired stack-address",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "9.3"
+          }
+        }, {
+          "id" : "cpp/redundant-null-check-simple",
+          "name" : "cpp/redundant-null-check-simple",
+          "shortDescription" : {
+            "text" : "Redundant null check due to previous dereference"
+          },
+          "fullDescription" : {
+            "text" : "Checking a pointer for nullness after dereferencing it is likely to be a sign that either the check can be removed, or it should be moved before the dereference."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "external/cwe/cwe-476" ],
+            "description" : "Checking a pointer for nullness after dereferencing it is\n              likely to be a sign that either the check can be removed, or\n              it should be moved before the dereference.",
+            "id" : "cpp/redundant-null-check-simple",
+            "kind" : "problem",
+            "name" : "Redundant null check due to previous dereference",
+            "problem.severity" : "error"
+          }
+        }, {
+          "id" : "cpp/inconsistent-call-on-result",
+          "name" : "cpp/inconsistent-call-on-result",
+          "shortDescription" : {
+            "text" : "Inconsistent operation on return value"
+          },
+          "fullDescription" : {
+            "text" : "A function is called, and the same operation is usually performed on the return value - for example, free, delete, close etc. However, in some cases it is not performed. These unusual cases may indicate misuse of the API and could cause resource leaks."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "statistical", "non-attributable", "external/cwe/cwe-252" ],
+            "description" : "A function is called, and the same operation is usually performed on the return value - for example, free, delete, close etc. However, in some cases it is not performed. These unusual cases may indicate misuse of the API and could cause resource leaks.",
+            "id" : "cpp/inconsistent-call-on-result",
+            "kind" : "problem",
+            "name" : "Inconsistent operation on return value",
+            "precision" : "medium",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "cpp/ambiguously-signed-bit-field",
+          "name" : "cpp/ambiguously-signed-bit-field",
+          "shortDescription" : {
+            "text" : "Ambiguously signed bit-field member"
+          },
+          "fullDescription" : {
+            "text" : "Bit fields with integral types should have explicit signedness only. For example, use `unsigned int` rather than `int`. It is implementation specific whether an `int`-typed bit field is signed, so there could be unexpected sign extension or overflow."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "readability", "language-features", "external/cwe/cwe-190" ],
+            "description" : "Bit fields with integral types should have explicit signedness\n              only. For example, use `unsigned int` rather than `int`. It is\n              implementation specific whether an `int`-typed bit field is\n              signed, so there could be unexpected sign extension or\n              overflow.",
+            "id" : "cpp/ambiguously-signed-bit-field",
+            "kind" : "problem",
+            "name" : "Ambiguously signed bit-field member",
+            "precision" : "high",
+            "problem.severity" : "warning"
+          }
+        }, {
+          "id" : "cpp/inconsistent-null-check",
+          "name" : "cpp/inconsistent-null-check",
+          "shortDescription" : {
+            "text" : "Inconsistent nullness check"
+          },
+          "fullDescription" : {
+            "text" : "The result value of a function is often checked for nullness, but not always. Since the value is mostly checked, it is likely that the function can return null values in some cases, and omitting the check could crash the program."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "reliability", "correctness", "statistical", "non-attributable", "external/cwe/cwe-476" ],
+            "description" : "The result value of a function is often checked for nullness,\n              but not always. Since the value is mostly checked, it is likely\n              that the function can return null values in some cases, and\n              omitting the check could crash the program.",
+            "id" : "cpp/inconsistent-null-check",
+            "kind" : "problem",
+            "name" : "Inconsistent nullness check",
+            "precision" : "medium",
+            "problem.severity" : "error"
+          }
+        } ]
+      },
+      "extensions" : [ {
+        "name" : "codeql/typos",
+        "semanticVersion" : "0.0.9-dev+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/shared/typos/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/shared/typos/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "legacy-libraries-java",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/misc/legacy-support/java/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/misc/legacy-support/java/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/java-examples",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/java/ql/examples/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/java/ql/examples/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/java-queries",
+        "semanticVersion" : "0.5.1-dev+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/java/ql/src/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/java/ql/src/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "csharp-solorigate-tests",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/csharp/ql/campaigns/Solorigate/test/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/csharp/ql/campaigns/Solorigate/test/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "legacy-libraries-csharp",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/misc/legacy-support/csharp/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/misc/legacy-support/csharp/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/csharp-solorigate-all",
+        "semanticVersion" : "1.4.1-dev+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/csharp/ql/campaigns/Solorigate/lib/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/csharp/ql/campaigns/Solorigate/lib/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/ruby-all",
+        "semanticVersion" : "0.5.1-dev+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/ruby/ql/lib/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/ruby/ql/lib/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "legacy-libraries-javascript",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/misc/legacy-support/javascript/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/misc/legacy-support/javascript/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "legacy-libraries-cpp",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/misc/legacy-support/cpp/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/misc/legacy-support/cpp/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/javascript-experimental-atm-lib",
+        "semanticVersion" : "0.4.6+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/javascript/ql/experimental/adaptivethreatmodeling/lib/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/javascript/ql/experimental/adaptivethreatmodeling/lib/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/javascript-all",
+        "semanticVersion" : "0.4.1-dev+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/javascript/ql/lib/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/javascript/ql/lib/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/swift-queries",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/swift/ql/src/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/swift/ql/src/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/regex",
+        "semanticVersion" : "0.0.5-dev+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/shared/regex/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/shared/regex/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql-java-consistency-queries",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/java/ql/consistency-queries/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/java/ql/consistency-queries/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/javascript-examples",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/javascript/ql/examples/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/javascript/ql/examples/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/ql-consistency-queries",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/ql/ql/consistency-queries/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/ql/ql/consistency-queries/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/javascript-experimental-atm-model-building",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/javascript/ql/experimental/adaptivethreatmodeling/modelbuilding/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/javascript/ql/experimental/adaptivethreatmodeling/modelbuilding/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/python-all",
+        "semanticVersion" : "0.7.1-dev+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/python/ql/lib/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/python/ql/lib/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/tutorial",
+        "semanticVersion" : "0.0.2-dev+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/shared/tutorial/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/shared/tutorial/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/cpp-queries",
+        "semanticVersion" : "0.5.1-dev+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/cpp/ql/src/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/cpp/ql/src/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/csharp-examples",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/csharp/ql/examples/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/csharp/ql/examples/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql-csharp-tests",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/csharp/ql/test/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/csharp/ql/test/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/go-examples",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/go/ql/examples/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/go/ql/examples/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql-swift-tests",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/swift/ql/test/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/swift/ql/test/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/typetracking",
+        "semanticVersion" : "0.0.2-dev+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/shared/typetracking/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/shared/typetracking/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/ql-tests",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/ql/ql/test/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/ql/ql/test/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/go-queries",
+        "semanticVersion" : "0.4.1-dev+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/go/ql/src/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/go/ql/src/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "legacy-libraries-go",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/go/ql/config/legacy-support/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/go/ql/config/legacy-support/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/python-tests",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/python/ql/test/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/python/ql/test/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/cpp-examples",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/cpp/ql/examples/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/cpp/ql/examples/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "integration-tests-swift",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/swift/integration-tests/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/swift/integration-tests/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/javascript-queries",
+        "semanticVersion" : "0.5.1-dev+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/javascript/ql/src/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/javascript/ql/src/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/python-consistency-queries",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/python/ql/consistency-queries/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/python/ql/consistency-queries/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/cpp-tests",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/cpp/ql/test/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/cpp/ql/test/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/java-tests",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/java/ql/test/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/java/ql/test/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/java-all",
+        "semanticVersion" : "0.5.1-dev+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/java/ql/lib/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/java/ql/lib/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/cpp-tests-cwe-190-tainted",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/cpp/ql/test/query-tests/Security/CWE/CWE-190/semmle/tainted/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/cpp/ql/test/query-tests/Security/CWE/CWE-190/semmle/tainted/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/cpp-all",
+        "semanticVersion" : "0.5.1-dev+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/cpp/ql/lib/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/cpp/ql/lib/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/ssa",
+        "semanticVersion" : "0.0.9-dev+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/shared/ssa/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/shared/ssa/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/csharp-all",
+        "semanticVersion" : "0.5.1-dev+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/csharp/ql/lib/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/csharp/ql/lib/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/python-queries",
+        "semanticVersion" : "0.6.1-dev+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/python/ql/src/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/python/ql/src/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/ql",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/ql/ql/src/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/ql/ql/src/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "legacy-libraries-python",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/misc/legacy-support/python/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/misc/legacy-support/python/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/javascript-experimental-atm-tests",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/javascript/ql/experimental/adaptivethreatmodeling/test/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/javascript/ql/experimental/adaptivethreatmodeling/test/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/go-tests",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/go/ql/test/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/go/ql/test/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/javascript-tests",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/javascript/ql/test/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/javascript/ql/test/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/ruby-examples",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/ruby/ql/examples/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/ruby/ql/examples/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "legacy-upgrades",
+        "semanticVersion" : "0.0.0",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql/legacy-upgrades/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql/legacy-upgrades/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/csharp-solorigate-queries",
+        "semanticVersion" : "1.4.1-dev+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/csharp/ql/campaigns/Solorigate/src/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/csharp/ql/campaigns/Solorigate/src/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/ruby-queries",
+        "semanticVersion" : "0.5.1-dev+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/ruby/ql/src/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/ruby/ql/src/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql-csharp-consistency-queries",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/csharp/ql/consistency-queries/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/csharp/ql/consistency-queries/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/swift-all",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/swift/ql/lib/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/swift/ql/lib/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/javascript-experimental-atm-queries",
+        "semanticVersion" : "0.4.6+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/javascript/ql/experimental/adaptivethreatmodeling/src/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/javascript/ql/experimental/adaptivethreatmodeling/src/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/ql-examples",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/ql/ql/examples/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/ql/ql/examples/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/ruby-consistency-queries",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/ruby/ql/consistency-queries/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/ruby/ql/consistency-queries/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/go-all",
+        "semanticVersion" : "0.4.1-dev+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/go/ql/lib/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/go/ql/lib/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/ruby-tests",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/ruby/ql/test/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/ruby/ql/test/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/util",
+        "semanticVersion" : "0.0.2-dev+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/shared/util/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/shared/util/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/csharp-queries",
+        "semanticVersion" : "0.5.1-dev+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/csharp/ql/src/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/csharp/ql/src/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/python-examples",
+        "semanticVersion" : "0.0.0+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/python/ql/examples/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/python/ql/examples/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      }, {
+        "name" : "codeql/suite-helpers",
+        "semanticVersion" : "0.4.1-dev+8aa2c23ba8dfb4e2e46583c709d09d4bf29200fc",
+        "locations" : [ {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/misc/suite-helpers/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///home/dvenegas/codeql-home/codeql-repo/misc/suite-helpers/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      } ]
+    },
+    "artifacts" : [ {
+      "location" : {
+        "uri" : "repo/contrib/libtests/pngimage.c",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 0
+      }
+    }, {
+      "location" : {
+        "uri" : "repo/contrib/tools/pngfix.c",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 1
+      }
+    }, {
+      "location" : {
+        "uri" : "repo/pngrutil.c",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 2
+      }
+    }, {
+      "location" : {
+        "uri" : "repo/contrib/libtests/pngstest.c",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 3
+      }
+    }, {
+      "location" : {
+        "uri" : "repo/contrib/libtests/pngunknown.c",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 4
+      }
+    }, {
+      "location" : {
+        "uri" : "repo/contrib/libtests/pngvalid.c",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 5
+      }
+    }, {
+      "location" : {
+        "uri" : "repo/pngtest.c",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 6
+      }
+    }, {
+      "location" : {
+        "uri" : "repo/pngread.c",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 7
+      }
+    }, {
+      "location" : {
+        "uri" : "repo/pngset.c",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 8
+      }
+    }, {
+      "location" : {
+        "uri" : "repo/pngrtran.c",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 9
+      }
+    }, {
+      "location" : {
+        "uri" : "repo/contrib/tools/png-fix-itxt.c",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 10
+      }
+    }, {
+      "location" : {
+        "uri" : "repo/intel/filter_sse2_intrinsics.c",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 11
+      }
+    }, {
+      "location" : {
+        "uri" : "repo/png.h",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 12
+      }
+    }, {
+      "location" : {
+        "uri" : "repo/pnginfo.h",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 13
+      }
+    }, {
+      "location" : {
+        "uri" : "repo/pngstruct.h",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 14
+      }
+    }, {
+      "location" : {
+        "uri" : "repo/png.c",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 15
+      }
+    }, {
+      "location" : {
+        "uri" : "repo/pngerror.c",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 16
+      }
+    } ],
+    "results" : [ {
+      "ruleId" : "cpp/dead-code-condition",
+      "ruleIndex" : 0,
+      "rule" : {
+        "id" : "cpp/dead-code-condition",
+        "index" : 0
+      },
+      "message" : {
+        "text" : "Variable 'tr' is always non-null, this check will always succeed."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngimage.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 0
+          },
+          "region" : {
+            "startLine" : 1396,
+            "startColumn" : 17,
+            "endColumn" : 24
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "b70e980cfc5d7008:1",
+        "primaryLocationStartColumnFingerprint" : "4"
+      }
+    }, {
+      "ruleId" : "cpp/dead-code-condition",
+      "ruleIndex" : 0,
+      "rule" : {
+        "id" : "cpp/dead-code-condition",
+        "index" : 0
+      },
+      "message" : {
+        "text" : "Variable 'mask' is always non-null, this check will always fail."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngimage.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 0
+          },
+          "region" : {
+            "startLine" : 1232,
+            "startColumn" : 29,
+            "endColumn" : 38
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "87bd34a3d358102f:1",
+        "primaryLocationStartColumnFingerprint" : "16"
+      }
+    }, {
+      "ruleId" : "cpp/dead-code-condition",
+      "ruleIndex" : 0,
+      "rule" : {
+        "id" : "cpp/dead-code-condition",
+        "index" : 0
+      },
+      "message" : {
+        "text" : "Variable 'next' is always null, this check will always succeed."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/tools/pngfix.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 1
+          },
+          "region" : {
+            "startLine" : 677,
+            "startColumn" : 11,
+            "endColumn" : 23
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "e72b41dcf220232f:1",
+        "primaryLocationStartColumnFingerprint" : "4"
+      }
+    }, {
+      "ruleId" : "cpp/dead-code-condition",
+      "ruleIndex" : 0,
+      "rule" : {
+        "id" : "cpp/dead-code-condition",
+        "index" : 0
+      },
+      "message" : {
+        "text" : "Variable 'ret' is always null, this check will always succeed."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngrutil.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 2
+          },
+          "region" : {
+            "startLine" : 713,
+            "startColumn" : 28,
+            "endColumn" : 39
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "a95b5b4a3922e745:1",
+        "primaryLocationStartColumnFingerprint" : "9"
+      }
+    }, {
+      "ruleId" : "cpp/dead-code-condition",
+      "ruleIndex" : 0,
+      "rule" : {
+        "id" : "cpp/dead-code-condition",
+        "index" : 0
+      },
+      "message" : {
+        "text" : "Variable 'ret' is always null, this check will always succeed."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngrutil.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 2
+          },
+          "region" : {
+            "startLine" : 745,
+            "startColumn" : 19,
+            "endColumn" : 30
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "50fa16cebb3e0e2:1",
+        "primaryLocationStartColumnFingerprint" : "9"
+      }
+    }, {
+      "ruleId" : "cpp/dead-code-condition",
+      "ruleIndex" : 0,
+      "rule" : {
+        "id" : "cpp/dead-code-condition",
+        "index" : 0
+      },
+      "message" : {
+        "text" : "Variable 'buffer' is always null, this check will always fail."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngrutil.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 2
+          },
+          "region" : {
+            "startLine" : 314,
+            "startColumn" : 11,
+            "endColumn" : 25
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "c1f65ea20331ed2:1",
+        "primaryLocationStartColumnFingerprint" : "4"
+      }
+    }, {
+      "ruleId" : "cpp/file-may-not-be-closed",
+      "ruleIndex" : 5,
+      "rule" : {
+        "id" : "cpp/file-may-not-be-closed",
+        "index" : 5
+      },
+      "message" : {
+        "text" : "This file may not be closed at [this exit point](1).\nThis file may not be closed at [this exit point](2).\nThis file may not be closed at [this exit point](3).\nThis file may not be closed at [this exit point](4).\nThis file may not be closed at [this exit point](5).\nThis file may not be closed at [this exit point](6)."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngstest.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 3
+          },
+          "region" : {
+            "startLine" : 3060,
+            "startColumn" : 17,
+            "endColumn" : 22
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "65a72caf00d0cead:1",
+        "primaryLocationStartColumnFingerprint" : "10"
+      },
+      "relatedLocations" : [ {
+        "id" : 1,
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngstest.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 3
+          },
+          "region" : {
+            "startLine" : 3095,
+            "startColumn" : 28,
+            "endLine" : 3096,
+            "endColumn" : 50
+          }
+        },
+        "message" : {
+          "text" : "this exit point"
+        }
+      }, {
+        "id" : 2,
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngstest.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 3
+          },
+          "region" : {
+            "startLine" : 3101,
+            "startColumn" : 25,
+            "endLine" : 3102,
+            "endColumn" : 49
+          }
+        },
+        "message" : {
+          "text" : "this exit point"
+        }
+      }, {
+        "id" : 3,
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngstest.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 3
+          },
+          "region" : {
+            "startLine" : 3106,
+            "startColumn" : 22,
+            "endLine" : 3107,
+            "endColumn" : 67
+          }
+        },
+        "message" : {
+          "text" : "this exit point"
+        }
+      }, {
+        "id" : 4,
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngstest.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 3
+          },
+          "region" : {
+            "startLine" : 3115,
+            "startColumn" : 19,
+            "endLine" : 3116,
+            "endColumn" : 41
+          }
+        },
+        "message" : {
+          "text" : "this exit point"
+        }
+      }, {
+        "id" : 5,
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngstest.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 3
+          },
+          "region" : {
+            "startLine" : 3119,
+            "startColumn" : 19,
+            "endLine" : 3120,
+            "endColumn" : 41
+          }
+        },
+        "message" : {
+          "text" : "this exit point"
+        }
+      }, {
+        "id" : 6,
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngstest.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 3
+          },
+          "region" : {
+            "startLine" : 3124,
+            "startColumn" : 16,
+            "endColumn" : 79
+          }
+        },
+        "message" : {
+          "text" : "this exit point"
+        }
+      } ]
+    }, {
+      "ruleId" : "cpp/global-use-before-init",
+      "ruleIndex" : 7,
+      "rule" : {
+        "id" : "cpp/global-use-before-init",
+        "index" : 7
+      },
+      "message" : {
+        "text" : "The variable 'stderr is used in this function but may not be initialized when it is called."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngimage.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 0
+          },
+          "region" : {
+            "startLine" : 1584,
+            "endColumn" : 5
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "c2f9c6ff4b41ace5:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/global-use-before-init",
+      "ruleIndex" : 7,
+      "rule" : {
+        "id" : "cpp/global-use-before-init",
+        "index" : 7
+      },
+      "message" : {
+        "text" : "The variable 'read_transforms is used in this function but may not be initialized when it is called.\nThe variable 'rw_transforms is used in this function but may not be initialized when it is called."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngimage.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 0
+          },
+          "region" : {
+            "startLine" : 1414,
+            "endColumn" : 14
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "62b31edf02549eb3:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/global-use-before-init",
+      "ruleIndex" : 7,
+      "rule" : {
+        "id" : "cpp/global-use-before-init",
+        "index" : 7
+      },
+      "message" : {
+        "text" : "The variable 'stderr is used in this function but may not be initialized when it is called."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngimage.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 0
+          },
+          "region" : {
+            "startLine" : 684,
+            "endColumn" : 12
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "38a55f1def676460:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/global-use-before-init",
+      "ruleIndex" : 7,
+      "rule" : {
+        "id" : "cpp/global-use-before-init",
+        "index" : 7
+      },
+      "message" : {
+        "text" : "The variable 'stdin is used in this function but may not be initialized when it is called."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngimage.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 0
+          },
+          "region" : {
+            "startLine" : 785,
+            "endColumn" : 19
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "ab0e39e0412896a2:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/global-use-before-init",
+      "ruleIndex" : 7,
+      "rule" : {
+        "id" : "cpp/global-use-before-init",
+        "index" : 7
+      },
+      "message" : {
+        "text" : "The variable 'stderr is used in this function but may not be initialized when it is called.\nThe variable 'stdout is used in this function but may not be initialized when it is called."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngstest.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 3
+          },
+          "region" : {
+            "startLine" : 3492,
+            "endColumn" : 5
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "b6fb2be25ae157df:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/global-use-before-init",
+      "ruleIndex" : 7,
+      "rule" : {
+        "id" : "cpp/global-use-before-init",
+        "index" : 7
+      },
+      "message" : {
+        "text" : "The variable 'stderr is used in this function but may not be initialized when it is called."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngstest.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 3
+          },
+          "region" : {
+            "startLine" : 453,
+            "endColumn" : 9
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "f8909e89e18583b8:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/global-use-before-init",
+      "ruleIndex" : 7,
+      "rule" : {
+        "id" : "cpp/global-use-before-init",
+        "index" : 7
+      },
+      "message" : {
+        "text" : "The variable 'stderr is used in this function but may not be initialized when it is called.\nThe variable 'stdout is used in this function but may not be initialized when it is called."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngstest.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 3
+          },
+          "region" : {
+            "startLine" : 3449,
+            "endColumn" : 14
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "ed258a5066748cec:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/global-use-before-init",
+      "ruleIndex" : 7,
+      "rule" : {
+        "id" : "cpp/global-use-before-init",
+        "index" : 7
+      },
+      "message" : {
+        "text" : "The variable 'stdout is used in this function but may not be initialized when it is called."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngstest.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 3
+          },
+          "region" : {
+            "startLine" : 2954,
+            "endColumn" : 10
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "1cd2a1c6131f2e4c:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/global-use-before-init",
+      "ruleIndex" : 7,
+      "rule" : {
+        "id" : "cpp/global-use-before-init",
+        "index" : 7
+      },
+      "message" : {
+        "text" : "The variable 'stderr is used in this function but may not be initialized when it is called.\nThe variable 'stdout is used in this function but may not be initialized when it is called."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngstest.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 3
+          },
+          "region" : {
+            "startLine" : 727,
+            "endColumn" : 9
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "2d7097214ebee55e:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/global-use-before-init",
+      "ruleIndex" : 7,
+      "rule" : {
+        "id" : "cpp/global-use-before-init",
+        "index" : 7
+      },
+      "message" : {
+        "text" : "The variable 'stderr is used in this function but may not be initialized when it is called.\nThe variable 'stdout is used in this function but may not be initialized when it is called."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngstest.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 3
+          },
+          "region" : {
+            "startLine" : 667,
+            "endColumn" : 12
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "499afd9575c93879:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/global-use-before-init",
+      "ruleIndex" : 7,
+      "rule" : {
+        "id" : "cpp/global-use-before-init",
+        "index" : 7
+      },
+      "message" : {
+        "text" : "The variable 'stderr is used in this function but may not be initialized when it is called.\nThe variable 'stdout is used in this function but may not be initialized when it is called."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngstest.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 3
+          },
+          "region" : {
+            "startLine" : 706,
+            "endColumn" : 12
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "e0f525c7182b5d:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/global-use-before-init",
+      "ruleIndex" : 7,
+      "rule" : {
+        "id" : "cpp/global-use-before-init",
+        "index" : 7
+      },
+      "message" : {
+        "text" : "The variable 'stderr is used in this function but may not be initialized when it is called."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngstest.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 3
+          },
+          "region" : {
+            "startLine" : 2064,
+            "endColumn" : 23
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "f72c0fb92c0615c3:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/global-use-before-init",
+      "ruleIndex" : 7,
+      "rule" : {
+        "id" : "cpp/global-use-before-init",
+        "index" : 7
+      },
+      "message" : {
+        "text" : "The variable 'stderr is used in this function but may not be initialized when it is called."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngunknown.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 4
+          },
+          "region" : {
+            "startLine" : 1298,
+            "endColumn" : 5
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "3c342c6cca6e2b15:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/global-use-before-init",
+      "ruleIndex" : 7,
+      "rule" : {
+        "id" : "cpp/global-use-before-init",
+        "index" : 7
+      },
+      "message" : {
+        "text" : "The variable 'stderr is used in this function but may not be initialized when it is called."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngvalid.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 5
+          },
+          "region" : {
+            "startLine" : 12272,
+            "startColumn" : 5,
+            "endColumn" : 9
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "8f1bf5d6ab8387d:1",
+        "primaryLocationStartColumnFingerprint" : "4"
+      }
+    }, {
+      "ruleId" : "cpp/global-use-before-init",
+      "ruleIndex" : 7,
+      "rule" : {
+        "id" : "cpp/global-use-before-init",
+        "index" : 7
+      },
+      "message" : {
+        "text" : "The variable 'stderr is used in this function but may not be initialized when it is called."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/tools/pngfix.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 1
+          },
+          "region" : {
+            "startLine" : 3858,
+            "endColumn" : 5
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "7006d563f6ac9e8a:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/global-use-before-init",
+      "ruleIndex" : 7,
+      "rule" : {
+        "id" : "cpp/global-use-before-init",
+        "index" : 7
+      },
+      "message" : {
+        "text" : "The variable 'stderr is used in this function but may not be initialized when it is called."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/tools/pngfix.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 1
+          },
+          "region" : {
+            "startLine" : 3675,
+            "endColumn" : 6
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "5b6e38de1747aad4:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/global-use-before-init",
+      "ruleIndex" : 7,
+      "rule" : {
+        "id" : "cpp/global-use-before-init",
+        "index" : 7
+      },
+      "message" : {
+        "text" : "The variable 'stderr is used in this function but may not be initialized when it is called."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/tools/pngfix.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 1
+          },
+          "region" : {
+            "startLine" : 3652,
+            "endColumn" : 9
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "9aa26f3aeb540e49:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/global-use-before-init",
+      "ruleIndex" : 7,
+      "rule" : {
+        "id" : "cpp/global-use-before-init",
+        "index" : 7
+      },
+      "message" : {
+        "text" : "The variable 'stderr is used in this function but may not be initialized when it is called."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/tools/pngfix.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 1
+          },
+          "region" : {
+            "startLine" : 3577,
+            "endColumn" : 9
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "6dd9f08a7c499d38:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/global-use-before-init",
+      "ruleIndex" : 7,
+      "rule" : {
+        "id" : "cpp/global-use-before-init",
+        "index" : 7
+      },
+      "message" : {
+        "text" : "The variable 'stderr is used in this function but may not be initialized when it is called."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/tools/pngfix.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 1
+          },
+          "region" : {
+            "startLine" : 948,
+            "endColumn" : 11
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "6a92bfc788d28f0:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/global-use-before-init",
+      "ruleIndex" : 7,
+      "rule" : {
+        "id" : "cpp/global-use-before-init",
+        "index" : 7
+      },
+      "message" : {
+        "text" : "The variable 'stdout is used in this function but may not be initialized when it is called."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngtest.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 6
+          },
+          "region" : {
+            "startLine" : 2148,
+            "endColumn" : 5
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "cf81b80a9ef8be5a:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/memory-may-not-be-freed",
+      "ruleIndex" : 12,
+      "rule" : {
+        "id" : "cpp/memory-may-not-be-freed",
+        "index" : 12
+      },
+      "message" : {
+        "text" : "This memory allocation may not be released at [this exit point](1)."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngread.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 7
+          },
+          "region" : {
+            "startLine" : 1321,
+            "startColumn" : 31,
+            "endColumn" : 53
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "3ff039ffc124ba25:1",
+        "primaryLocationStartColumnFingerprint" : "21"
+      },
+      "relatedLocations" : [ {
+        "id" : 1,
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngread.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 7
+          },
+          "region" : {
+            "startLine" : 1347,
+            "startColumn" : 7,
+            "endColumn" : 70
+          }
+        },
+        "message" : {
+          "text" : "this exit point"
+        }
+      } ]
+    }, {
+      "ruleId" : "cpp/memory-may-not-be-freed",
+      "ruleIndex" : 12,
+      "rule" : {
+        "id" : "cpp/memory-may-not-be-freed",
+        "index" : 12
+      },
+      "message" : {
+        "text" : "This memory allocation may not be released at [this exit point](1)."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngset.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 8
+          },
+          "region" : {
+            "startLine" : 1470,
+            "startColumn" : 7,
+            "endLine" : 1471,
+            "endColumn" : 46
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "518ee46898f7f127:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      },
+      "relatedLocations" : [ {
+        "id" : 1,
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngset.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 8
+          },
+          "region" : {
+            "startLine" : 1535,
+            "endColumn" : 2
+          }
+        },
+        "message" : {
+          "text" : "this exit point"
+        }
+      } ]
+    }, {
+      "ruleId" : "cpp/missing-null-test",
+      "ruleIndex" : 16,
+      "rule" : {
+        "id" : "cpp/missing-null-test",
+        "index" : 16
+      },
+      "message" : {
+        "text" : "Value may be null; it should be checked before dereferencing."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngrtran.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 9
+          },
+          "region" : {
+            "startLine" : 769,
+            "startColumn" : 14,
+            "endColumn" : 22
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "6a62cc648d9665f5:1",
+        "primaryLocationStartColumnFingerprint" : "7"
+      }
+    }, {
+      "ruleId" : "cpp/missing-null-test",
+      "ruleIndex" : 16,
+      "rule" : {
+        "id" : "cpp/missing-null-test",
+        "index" : 16
+      },
+      "message" : {
+        "text" : "Value may be null; it should be checked before dereferencing."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngset.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 8
+          },
+          "region" : {
+            "startLine" : 1474,
+            "startColumn" : 17,
+            "endColumn" : 25
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "b1b481e0ebec22f3:1",
+        "primaryLocationStartColumnFingerprint" : "7"
+      }
+    }, {
+      "ruleId" : "cpp/not-initialised",
+      "ruleIndex" : 20,
+      "rule" : {
+        "id" : "cpp/not-initialised",
+        "index" : 20
+      },
+      "message" : {
+        "text" : "Variable 'read_transforms' is not initialized."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngimage.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 0
+          },
+          "region" : {
+            "startLine" : 333,
+            "startColumn" : 21,
+            "endColumn" : 36
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "7103f885b94c101c:1",
+        "primaryLocationStartColumnFingerprint" : "20"
+      }
+    }, {
+      "ruleId" : "cpp/not-initialised",
+      "ruleIndex" : 20,
+      "rule" : {
+        "id" : "cpp/not-initialised",
+        "index" : 20
+      },
+      "message" : {
+        "text" : "Variable 'rw_transforms' is not initialized."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngimage.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 0
+          },
+          "region" : {
+            "startLine" : 333,
+            "startColumn" : 56,
+            "endColumn" : 69
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "7103f885b94c101c:1",
+        "primaryLocationStartColumnFingerprint" : "55"
+      }
+    }, {
+      "ruleId" : "cpp/not-initialised",
+      "ruleIndex" : 20,
+      "rule" : {
+        "id" : "cpp/not-initialised",
+        "index" : 20
+      },
+      "message" : {
+        "text" : "Variable 'write_transforms' is not initialized."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngimage.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 0
+          },
+          "region" : {
+            "startLine" : 333,
+            "startColumn" : 38,
+            "endColumn" : 54
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "7103f885b94c101c:1",
+        "primaryLocationStartColumnFingerprint" : "37"
+      }
+    }, {
+      "ruleId" : "cpp/not-initialised",
+      "ruleIndex" : 20,
+      "rule" : {
+        "id" : "cpp/not-initialised",
+        "index" : 20
+      },
+      "message" : {
+        "text" : "Variable 'inchar' is not initialized."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/tools/png-fix-itxt.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 10
+          },
+          "region" : {
+            "startLine" : 57,
+            "startColumn" : 5,
+            "endColumn" : 11
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "da26b1c556790d4f:1",
+        "primaryLocationStartColumnFingerprint" : "4"
+      }
+    }, {
+      "ruleId" : "cpp/not-initialised",
+      "ruleIndex" : 20,
+      "rule" : {
+        "id" : "cpp/not-initialised",
+        "index" : 20
+      },
+      "message" : {
+        "text" : "Variable 'c' is not initialized."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/tools/png-fix-itxt.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 10
+          },
+          "region" : {
+            "startLine" : 57,
+            "startColumn" : 15,
+            "endColumn" : 16
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "da26b1c556790d4f:1",
+        "primaryLocationStartColumnFingerprint" : "14"
+      }
+    }, {
+      "ruleId" : "cpp/unused-variable",
+      "ruleIndex" : 28,
+      "rule" : {
+        "id" : "cpp/unused-variable",
+        "index" : 28
+      },
+      "message" : {
+        "text" : "Variable 'error' is assigned a value that is never used."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngstest.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 3
+          },
+          "region" : {
+            "startLine" : 3801,
+            "startColumn" : 21,
+            "endColumn" : 23
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "ea5a1d2a1c5a5420:1",
+        "primaryLocationStartColumnFingerprint" : "11"
+      }
+    }, {
+      "ruleId" : "cpp/unused-variable",
+      "ruleIndex" : 28,
+      "rule" : {
+        "id" : "cpp/unused-variable",
+        "index" : 28
+      },
+      "message" : {
+        "text" : "Variable 'length' is assigned a value that is never used."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/tools/pngfix.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 1
+          },
+          "region" : {
+            "startLine" : 1682,
+            "startColumn" : 10,
+            "endColumn" : 18
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "37aa1ab453a51cc8:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/unused-variable",
+      "ruleIndex" : 28,
+      "rule" : {
+        "id" : "cpp/unused-variable",
+        "index" : 28
+      },
+      "message" : {
+        "text" : "Variable 'prev' is assigned a value that is never used."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/intel/filter_sse2_intrinsics.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 11
+          },
+          "region" : {
+            "startLine" : 322,
+            "startColumn" : 7,
+            "endColumn" : 16
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "c96192feb7b9af54:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/unused-variable",
+      "ruleIndex" : 28,
+      "rule" : {
+        "id" : "cpp/unused-variable",
+        "index" : 28
+      },
+      "message" : {
+        "text" : "Variable 'row' is assigned a value that is never used."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/intel/filter_sse2_intrinsics.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 11
+          },
+          "region" : {
+            "startLine" : 323,
+            "startColumn" : 7,
+            "endColumn" : 16
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "75824f93b39c64b0:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/unused-variable",
+      "ruleIndex" : 28,
+      "rule" : {
+        "id" : "cpp/unused-variable",
+        "index" : 28
+      },
+      "message" : {
+        "text" : "Variable 'rb' is assigned a value that is never used."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/intel/filter_sse2_intrinsics.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 11
+          },
+          "region" : {
+            "startLine" : 324,
+            "startColumn" : 7,
+            "endColumn" : 16
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "4ab29e732ada805b:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/unused-variable",
+      "ruleIndex" : 28,
+      "rule" : {
+        "id" : "cpp/unused-variable",
+        "index" : 28
+      },
+      "message" : {
+        "text" : "Variable 'prev' is assigned a value that is never used."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/intel/filter_sse2_intrinsics.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 11
+          },
+          "region" : {
+            "startLine" : 159,
+            "startColumn" : 7,
+            "endColumn" : 16
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "3e73eff4cf39cbee:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/unused-variable",
+      "ruleIndex" : 28,
+      "rule" : {
+        "id" : "cpp/unused-variable",
+        "index" : 28
+      },
+      "message" : {
+        "text" : "Variable 'row' is assigned a value that is never used."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/intel/filter_sse2_intrinsics.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 11
+          },
+          "region" : {
+            "startLine" : 160,
+            "startColumn" : 7,
+            "endColumn" : 16
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "7cc1a57d4204adc3:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/unused-variable",
+      "ruleIndex" : 28,
+      "rule" : {
+        "id" : "cpp/unused-variable",
+        "index" : 28
+      },
+      "message" : {
+        "text" : "Variable 'rb' is assigned a value that is never used."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/intel/filter_sse2_intrinsics.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 11
+          },
+          "region" : {
+            "startLine" : 161,
+            "startColumn" : 7,
+            "endColumn" : 16
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "13e9479f9fd02d52:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/unused-variable",
+      "ruleIndex" : 28,
+      "rule" : {
+        "id" : "cpp/unused-variable",
+        "index" : 28
+      },
+      "message" : {
+        "text" : "Variable 'row' is assigned a value that is never used."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/intel/filter_sse2_intrinsics.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 11
+          },
+          "region" : {
+            "startLine" : 79,
+            "startColumn" : 7,
+            "endColumn" : 15
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "428a6a40ac6da81e:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/unused-variable",
+      "ruleIndex" : 28,
+      "rule" : {
+        "id" : "cpp/unused-variable",
+        "index" : 28
+      },
+      "message" : {
+        "text" : "Variable 'rb' is assigned a value that is never used."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/intel/filter_sse2_intrinsics.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 11
+          },
+          "region" : {
+            "startLine" : 80,
+            "startColumn" : 7,
+            "endColumn" : 15
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "143ecc5bdd80df8d:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/unused-variable",
+      "ruleIndex" : 28,
+      "rule" : {
+        "id" : "cpp/unused-variable",
+        "index" : 28
+      },
+      "message" : {
+        "text" : "Variable 'dp' is assigned a value that is never used."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngrtran.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 9
+          },
+          "region" : {
+            "startLine" : 2706,
+            "startColumn" : 15,
+            "endColumn" : 19
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "764dc65ae0c859a5:1",
+        "primaryLocationStartColumnFingerprint" : "2"
+      }
+    }, {
+      "ruleId" : "cpp/unused-variable",
+      "ruleIndex" : 28,
+      "rule" : {
+        "id" : "cpp/unused-variable",
+        "index" : 28
+      },
+      "message" : {
+        "text" : "Variable 'dp' is assigned a value that is never used."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngrtran.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 9
+          },
+          "region" : {
+            "startLine" : 2744,
+            "startColumn" : 15,
+            "endColumn" : 19
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "7f3e67bbdb0b2503:1",
+        "primaryLocationStartColumnFingerprint" : "2"
+      }
+    }, {
+      "ruleId" : "cpp/unused-variable",
+      "ruleIndex" : 28,
+      "rule" : {
+        "id" : "cpp/unused-variable",
+        "index" : 28
+      },
+      "message" : {
+        "text" : "Variable 'dp' is assigned a value that is never used."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngrtran.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 9
+          },
+          "region" : {
+            "startLine" : 2785,
+            "startColumn" : 15,
+            "endColumn" : 19
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "e0008e8f18a09bb7:1",
+        "primaryLocationStartColumnFingerprint" : "2"
+      }
+    }, {
+      "ruleId" : "cpp/unused-variable",
+      "ruleIndex" : 28,
+      "rule" : {
+        "id" : "cpp/unused-variable",
+        "index" : 28
+      },
+      "message" : {
+        "text" : "Variable 'dp' is assigned a value that is never used."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngrtran.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 9
+          },
+          "region" : {
+            "startLine" : 2829,
+            "startColumn" : 15,
+            "endColumn" : 19
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "2858e807a400bb6e:1",
+        "primaryLocationStartColumnFingerprint" : "2"
+      }
+    }, {
+      "ruleId" : "cpp/unused-variable",
+      "ruleIndex" : 28,
+      "rule" : {
+        "id" : "cpp/unused-variable",
+        "index" : 28
+      },
+      "message" : {
+        "text" : "Variable 'dp' is assigned a value that is never used."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngrtran.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 9
+          },
+          "region" : {
+            "startLine" : 2593,
+            "startColumn" : 15,
+            "endColumn" : 19
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "8d701c1b9cdf082:1",
+        "primaryLocationStartColumnFingerprint" : "2"
+      }
+    }, {
+      "ruleId" : "cpp/unused-variable",
+      "ruleIndex" : 28,
+      "rule" : {
+        "id" : "cpp/unused-variable",
+        "index" : 28
+      },
+      "message" : {
+        "text" : "Variable 'dp' is assigned a value that is never used."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngrtran.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 9
+          },
+          "region" : {
+            "startLine" : 2617,
+            "startColumn" : 15,
+            "endColumn" : 19
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "8d701c1b9cdf082:2",
+        "primaryLocationStartColumnFingerprint" : "2"
+      }
+    }, {
+      "ruleId" : "cpp/unused-variable",
+      "ruleIndex" : 28,
+      "rule" : {
+        "id" : "cpp/unused-variable",
+        "index" : 28
+      },
+      "message" : {
+        "text" : "Variable 'dp' is assigned a value that is never used."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngrtran.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 9
+          },
+          "region" : {
+            "startLine" : 2661,
+            "startColumn" : 15,
+            "endColumn" : 19
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "3de30db77eeaff83:1",
+        "primaryLocationStartColumnFingerprint" : "2"
+      }
+    }, {
+      "ruleId" : "cpp/unused-variable",
+      "ruleIndex" : 28,
+      "rule" : {
+        "id" : "cpp/unused-variable",
+        "index" : 28
+      },
+      "message" : {
+        "text" : "Variable 'g' is assigned a value that is never used."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngrtran.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 9
+          },
+          "region" : {
+            "startLine" : 1733,
+            "startColumn" : 32,
+            "endColumn" : 41
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "1fa17199830ade46:1",
+        "primaryLocationStartColumnFingerprint" : "19"
+      }
+    }, {
+      "ruleId" : "cpp/unused-variable",
+      "ruleIndex" : 28,
+      "rule" : {
+        "id" : "cpp/unused-variable",
+        "index" : 28
+      },
+      "message" : {
+        "text" : "Variable 'max_palette_length' is assigned a value that is never used."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngrutil.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 2
+          },
+          "region" : {
+            "startLine" : 982,
+            "startColumn" : 7,
+            "endColumn" : 53
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "6370bb2ad63cbb58:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/unused-variable",
+      "ruleIndex" : 28,
+      "rule" : {
+        "id" : "cpp/unused-variable",
+        "index" : 28
+      },
+      "message" : {
+        "text" : "Variable 'max_palette_length' is assigned a value that is never used."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngrutil.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 2
+          },
+          "region" : {
+            "startLine" : 984,
+            "startColumn" : 7,
+            "endColumn" : 50
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "ef57aa054611f136:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/unused-variable",
+      "ruleIndex" : 28,
+      "rule" : {
+        "id" : "cpp/unused-variable",
+        "index" : 28
+      },
+      "message" : {
+        "text" : "Variable 'bad_character' is assigned a value that is never used."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngset.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 8
+          },
+          "region" : {
+            "startLine" : 1781,
+            "startColumn" : 10,
+            "endColumn" : 28
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "c382898fe6b2432f:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/unused-variable",
+      "ruleIndex" : 28,
+      "rule" : {
+        "id" : "cpp/unused-variable",
+        "index" : 28
+      },
+      "message" : {
+        "text" : "Variable 'max_palette_length' is assigned a value that is never used."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngset.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 8
+          },
+          "region" : {
+            "startLine" : 583,
+            "startColumn" : 4,
+            "endLine" : 584,
+            "endColumn" : 58
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "79ac99dac021890:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/unused-variable",
+      "ruleIndex" : 28,
+      "rule" : {
+        "id" : "cpp/unused-variable",
+        "index" : 28
+      },
+      "message" : {
+        "text" : "Variable 'lengthw' is assigned a value that is never used."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngset.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 8
+          },
+          "region" : {
+            "startLine" : 433,
+            "startColumn" : 21,
+            "endColumn" : 22
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "a5fe4a8366eeea18:1",
+        "primaryLocationStartColumnFingerprint" : "17"
+      }
+    }, {
+      "ruleId" : "cpp/unused-variable",
+      "ruleIndex" : 28,
+      "rule" : {
+        "id" : "cpp/unused-variable",
+        "index" : 28
+      },
+      "message" : {
+        "text" : "Variable 'lengthh' is assigned a value that is never used."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngset.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 8
+          },
+          "region" : {
+            "startLine" : 433,
+            "startColumn" : 34,
+            "endColumn" : 35
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "a5fe4a8366eeea18:1",
+        "primaryLocationStartColumnFingerprint" : "30"
+      }
+    }, {
+      "ruleId" : "cpp/more-64-bit-waste",
+      "ruleIndex" : 38,
+      "rule" : {
+        "id" : "cpp/more-64-bit-waste",
+        "index" : 38
+      },
+      "message" : {
+        "text" : "display includes 0 bits of padding on ILP32, but 32 bits on LP64."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngimage.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 0
+          },
+          "region" : {
+            "startLine" : 543,
+            "startColumn" : 8,
+            "endColumn" : 15
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "3d28dfee25a9e522:1",
+        "primaryLocationStartColumnFingerprint" : "7"
+      }
+    }, {
+      "ruleId" : "cpp/more-64-bit-waste",
+      "ruleIndex" : 38,
+      "rule" : {
+        "id" : "cpp/more-64-bit-waste",
+        "index" : 38
+      },
+      "message" : {
+        "text" : "struct <unnamed> includes 0 bits of padding on ILP32, but 64 bits on LP64."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngstest.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 3
+          },
+          "region" : {
+            "startLine" : 575,
+            "endColumn" : 2
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "3bae1f4439f51082:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/more-64-bit-waste",
+      "ruleIndex" : 38,
+      "rule" : {
+        "id" : "cpp/more-64-bit-waste",
+        "index" : 38
+      },
+      "message" : {
+        "text" : "struct <unnamed> includes 0 bits of padding on ILP32, but 32 bits on LP64."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngstest.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 3
+          },
+          "region" : {
+            "startLine" : 797,
+            "endColumn" : 2
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "646f529dda7421ba:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/more-64-bit-waste",
+      "ruleIndex" : 38,
+      "rule" : {
+        "id" : "cpp/more-64-bit-waste",
+        "index" : 38
+      },
+      "message" : {
+        "text" : "png_row_info_struct includes 0 bits of padding on ILP32, but 32 bits on LP64."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/png.h",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 12
+          },
+          "region" : {
+            "startLine" : 754,
+            "startColumn" : 16,
+            "endColumn" : 35
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "9ee712c5f4a62477:1",
+        "primaryLocationStartColumnFingerprint" : "15"
+      }
+    }, {
+      "ruleId" : "cpp/more-64-bit-waste",
+      "ruleIndex" : 38,
+      "rule" : {
+        "id" : "cpp/more-64-bit-waste",
+        "index" : 38
+      },
+      "message" : {
+        "text" : "png_text_struct includes 0 bits of padding on ILP32, but 32 bits on LP64."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/png.h",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 12
+          },
+          "region" : {
+            "startLine" : 562,
+            "startColumn" : 16,
+            "endColumn" : 31
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "4380829852fe8c24:1",
+        "primaryLocationStartColumnFingerprint" : "15"
+      }
+    }, {
+      "ruleId" : "cpp/more-64-bit-waste",
+      "ruleIndex" : 38,
+      "rule" : {
+        "id" : "cpp/more-64-bit-waste",
+        "index" : 38
+      },
+      "message" : {
+        "text" : "png_sPLT_struct includes 24 bits of padding on ILP32, but 56 bits on LP64."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/png.h",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 12
+          },
+          "region" : {
+            "startLine" : 533,
+            "startColumn" : 16,
+            "endColumn" : 31
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "3e7b654a37ca4032:1",
+        "primaryLocationStartColumnFingerprint" : "15"
+      }
+    }, {
+      "ruleId" : "cpp/more-64-bit-waste",
+      "ruleIndex" : 38,
+      "rule" : {
+        "id" : "cpp/more-64-bit-waste",
+        "index" : 38
+      },
+      "message" : {
+        "text" : "global includes 21 bits of padding on ILP32, but 53 bits on LP64."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/tools/pngfix.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 1
+          },
+          "region" : {
+            "startLine" : 689,
+            "startColumn" : 8,
+            "endColumn" : 14
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "67a2269c47525782:1",
+        "primaryLocationStartColumnFingerprint" : "7"
+      }
+    }, {
+      "ruleId" : "cpp/more-64-bit-waste",
+      "ruleIndex" : 38,
+      "rule" : {
+        "id" : "cpp/more-64-bit-waste",
+        "index" : 38
+      },
+      "message" : {
+        "text" : "png_info_def includes 112 bits of padding on ILP32, but 208 bits on LP64."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pnginfo.h",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 13
+          },
+          "region" : {
+            "startLine" : 55,
+            "startColumn" : 8,
+            "endColumn" : 20
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "c832875133e87a18:1",
+        "primaryLocationStartColumnFingerprint" : "7"
+      }
+    }, {
+      "ruleId" : "cpp/more-64-bit-waste",
+      "ruleIndex" : 38,
+      "rule" : {
+        "id" : "cpp/more-64-bit-waste",
+        "index" : 38
+      },
+      "message" : {
+        "text" : "png_struct_def includes 160 bits of padding on ILP32, but 320 bits on LP64."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngstruct.h",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 14
+          },
+          "region" : {
+            "startLine" : 143,
+            "startColumn" : 8,
+            "endColumn" : 22
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "eb21ab400ec1e34c:1",
+        "primaryLocationStartColumnFingerprint" : "7"
+      }
+    }, {
+      "ruleId" : "cpp/more-64-bit-waste",
+      "ruleIndex" : 38,
+      "rule" : {
+        "id" : "cpp/more-64-bit-waste",
+        "index" : 38
+      },
+      "message" : {
+        "text" : "struct <unnamed> includes 0 bits of padding on ILP32, but 32 bits on LP64."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngread.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 7
+          },
+          "region" : {
+            "startLine" : 1284,
+            "endColumn" : 2
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "3f5f6ef8f9a322ee:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/suboptimal-64-bit-type",
+      "ruleIndex" : 40,
+      "rule" : {
+        "id" : "cpp/suboptimal-64-bit-type",
+        "index" : 40
+      },
+      "message" : {
+        "text" : "struct <unnamed> could be optimized to save 64/64 bits of padding (or 1% of its size)."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/libtests/pngstest.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 3
+          },
+          "region" : {
+            "startLine" : 575,
+            "endColumn" : 2
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "3bae1f4439f51082:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/suboptimal-64-bit-type",
+      "ruleIndex" : 40,
+      "rule" : {
+        "id" : "cpp/suboptimal-64-bit-type",
+        "index" : 40
+      },
+      "message" : {
+        "text" : "png_row_info_struct could be optimized to save 64/64 bits of padding (or 34% of its size)."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/png.h",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 12
+          },
+          "region" : {
+            "startLine" : 754,
+            "startColumn" : 16,
+            "endColumn" : 35
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "9ee712c5f4a62477:1",
+        "primaryLocationStartColumnFingerprint" : "15"
+      }
+    }, {
+      "ruleId" : "cpp/suboptimal-64-bit-type",
+      "ruleIndex" : 40,
+      "rule" : {
+        "id" : "cpp/suboptimal-64-bit-type",
+        "index" : 40
+      },
+      "message" : {
+        "text" : "png_unknown_chunk_t could be optimized to save 64/80 bits of padding (or 25% of its size)."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/png.h",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 12
+          },
+          "region" : {
+            "startLine" : 622,
+            "startColumn" : 16,
+            "endColumn" : 35
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "a700f8cfa74d86ef:1",
+        "primaryLocationStartColumnFingerprint" : "15"
+      }
+    }, {
+      "ruleId" : "cpp/suboptimal-64-bit-type",
+      "ruleIndex" : 40,
+      "rule" : {
+        "id" : "cpp/suboptimal-64-bit-type",
+        "index" : 40
+      },
+      "message" : {
+        "text" : "png_sPLT_struct could be optimized to save 64/88 bits of padding (or 25% of its size)."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/png.h",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 12
+          },
+          "region" : {
+            "startLine" : 533,
+            "startColumn" : 16,
+            "endColumn" : 31
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "3e7b654a37ca4032:1",
+        "primaryLocationStartColumnFingerprint" : "15"
+      }
+    }, {
+      "ruleId" : "cpp/suboptimal-64-bit-type",
+      "ruleIndex" : 40,
+      "rule" : {
+        "id" : "cpp/suboptimal-64-bit-type",
+        "index" : 40
+      },
+      "message" : {
+        "text" : "zlib could be optimized to save 64/80 bits of padding (or 4% of its size)."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/contrib/tools/pngfix.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 1
+          },
+          "region" : {
+            "startLine" : 2010,
+            "startColumn" : 8,
+            "endColumn" : 12
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "cb4f46a1f030a3ff:1",
+        "primaryLocationStartColumnFingerprint" : "7"
+      }
+    }, {
+      "ruleId" : "cpp/suboptimal-64-bit-type",
+      "ruleIndex" : 40,
+      "rule" : {
+        "id" : "cpp/suboptimal-64-bit-type",
+        "index" : 40
+      },
+      "message" : {
+        "text" : "png_info_def could be optimized to save 192/208 bits of padding (or 7% of its size)."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pnginfo.h",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 13
+          },
+          "region" : {
+            "startLine" : 55,
+            "startColumn" : 8,
+            "endColumn" : 20
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "c832875133e87a18:1",
+        "primaryLocationStartColumnFingerprint" : "7"
+      }
+    }, {
+      "ruleId" : "cpp/suboptimal-64-bit-type",
+      "ruleIndex" : 40,
+      "rule" : {
+        "id" : "cpp/suboptimal-64-bit-type",
+        "index" : 40
+      },
+      "message" : {
+        "text" : "png_struct_def could be optimized to save 320/352 bits of padding (or 4% of its size)."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngstruct.h",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 14
+          },
+          "region" : {
+            "startLine" : 143,
+            "startColumn" : 8,
+            "endColumn" : 22
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "eb21ab400ec1e34c:1",
+        "primaryLocationStartColumnFingerprint" : "7"
+      }
+    }, {
+      "ruleId" : "cpp/suboptimal-64-bit-type",
+      "ruleIndex" : 40,
+      "rule" : {
+        "id" : "cpp/suboptimal-64-bit-type",
+        "index" : 40
+      },
+      "message" : {
+        "text" : "struct <unnamed> could be optimized to save 64/64 bits of padding (or 10% of its size)."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngread.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 7
+          },
+          "region" : {
+            "startLine" : 1284,
+            "endColumn" : 2
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "3f5f6ef8f9a322ee:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      }
+    }, {
+      "ruleId" : "cpp/stack-address-escape",
+      "ruleIndex" : 45,
+      "rule" : {
+        "id" : "cpp/stack-address-escape",
+        "index" : 45
+      },
+      "message" : {
+        "text" : "A stack address ([source](1)) may be assigned to a non-local variable."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/png.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 15
+          },
+          "region" : {
+            "startLine" : 4561,
+            "startColumn" : 4,
+            "endColumn" : 22
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "ca05966bda5fff55:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      },
+      "relatedLocations" : [ {
+        "id" : 1,
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/png.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 15
+          },
+          "region" : {
+            "startLine" : 4561,
+            "startColumn" : 21,
+            "endColumn" : 22
+          }
+        },
+        "message" : {
+          "text" : "source"
+        }
+      } ]
+    }, {
+      "ruleId" : "cpp/stack-address-escape",
+      "ruleIndex" : 45,
+      "rule" : {
+        "id" : "cpp/stack-address-escape",
+        "index" : 45
+      },
+      "message" : {
+        "text" : "A stack address ([source](1)) may be assigned to a non-local variable."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngerror.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 16
+          },
+          "region" : {
+            "startLine" : 950,
+            "startColumn" : 7,
+            "endColumn" : 45
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "fb6bab7da58008ea:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      },
+      "relatedLocations" : [ {
+        "id" : 1,
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngerror.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 16
+          },
+          "region" : {
+            "startLine" : 950,
+            "startColumn" : 34,
+            "endColumn" : 45
+          }
+        },
+        "message" : {
+          "text" : "source"
+        }
+      } ]
+    }, {
+      "ruleId" : "cpp/stack-address-escape",
+      "ruleIndex" : 45,
+      "rule" : {
+        "id" : "cpp/stack-address-escape",
+        "index" : 45
+      },
+      "message" : {
+        "text" : "A stack address ([source](1)) may be assigned to a non-local variable."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngrutil.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 2
+          },
+          "region" : {
+            "startLine" : 4250,
+            "startColumn" : 10,
+            "endColumn" : 44
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "c9a4a48ecf39d819:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      },
+      "relatedLocations" : [ {
+        "id" : 1,
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngrutil.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 2
+          },
+          "region" : {
+            "startLine" : 4250,
+            "startColumn" : 38,
+            "endColumn" : 44
+          }
+        },
+        "message" : {
+          "text" : "source"
+        }
+      } ]
+    }, {
+      "ruleId" : "cpp/stack-address-escape",
+      "ruleIndex" : 45,
+      "rule" : {
+        "id" : "cpp/stack-address-escape",
+        "index" : 45
+      },
+      "message" : {
+        "text" : "A stack address ([source](1)) may be assigned to a non-local variable."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngrutil.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 2
+          },
+          "region" : {
+            "startLine" : 1459,
+            "startColumn" : 16,
+            "endColumn" : 79
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "825186b5b7908bb8:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      },
+      "relatedLocations" : [ {
+        "id" : 1,
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngrutil.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 2
+          },
+          "region" : {
+            "startLine" : 1459,
+            "startColumn" : 51,
+            "endColumn" : 58
+          }
+        },
+        "message" : {
+          "text" : "source"
+        }
+      } ]
+    }, {
+      "ruleId" : "cpp/stack-address-escape",
+      "ruleIndex" : 45,
+      "rule" : {
+        "id" : "cpp/stack-address-escape",
+        "index" : 45
+      },
+      "message" : {
+        "text" : "A stack address which arrived via a [parameter](1) may be assigned to a non-local variable."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngrutil.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 2
+          },
+          "region" : {
+            "startLine" : 782,
+            "startColumn" : 7,
+            "endColumn" : 43
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "8fd9f40ef38bfcd6:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      },
+      "relatedLocations" : [ {
+        "id" : 1,
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngrutil.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 2
+          },
+          "region" : {
+            "startLine" : 782,
+            "startColumn" : 35,
+            "endColumn" : 43
+          }
+        },
+        "message" : {
+          "text" : "parameter"
+        }
+      } ]
+    }, {
+      "ruleId" : "cpp/stack-address-escape",
+      "ruleIndex" : 45,
+      "rule" : {
+        "id" : "cpp/stack-address-escape",
+        "index" : 45
+      },
+      "message" : {
+        "text" : "A stack address which arrived via a [parameter](1) may be assigned to a non-local variable."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngrutil.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 2
+          },
+          "region" : {
+            "startLine" : 796,
+            "startColumn" : 13,
+            "endColumn" : 51
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "b4e84934f2fae6b9:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      },
+      "relatedLocations" : [ {
+        "id" : 1,
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngrutil.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 2
+          },
+          "region" : {
+            "startLine" : 796,
+            "startColumn" : 40,
+            "endColumn" : 51
+          }
+        },
+        "message" : {
+          "text" : "parameter"
+        }
+      } ]
+    }, {
+      "ruleId" : "cpp/stack-address-escape",
+      "ruleIndex" : 45,
+      "rule" : {
+        "id" : "cpp/stack-address-escape",
+        "index" : 45
+      },
+      "message" : {
+        "text" : "A stack address ([source](1)) may be assigned to a non-local variable."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngrutil.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 2
+          },
+          "region" : {
+            "startLine" : 547,
+            "startColumn" : 13,
+            "endColumn" : 53
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "2135e917d828968a:1",
+        "primaryLocationStartColumnFingerprint" : "0"
+      },
+      "relatedLocations" : [ {
+        "id" : 1,
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "repo/pngrutil.c",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 2
+          },
+          "region" : {
+            "startLine" : 547,
+            "startColumn" : 41,
+            "endColumn" : 53
+          }
+        },
+        "message" : {
+          "text" : "source"
+        }
+      } ]
+    } ],
+    "columnKind" : "utf16CodeUnits",
+    "properties" : {
+      "semmle.formatSpecifier" : "sarifv2.1.0"
+    }
+  } ]
+}

@@ -1,0 +1,9 @@
+libpng
+libsndfile
+libtiff
+libxml2
+lua
+openssl
+php
+poppler
+sqlite3

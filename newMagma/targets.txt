@@ -1,0 +1,9 @@
+/home/dvenegas/Documents/TESIS/newMagma/exp/libpng
+/home/dvenegas/Documents/TESIS/newMagma/exp/libsndfile
+/home/dvenegas/Documents/TESIS/newMagma/exp/libtiff
+/home/dvenegas/Documents/TESIS/newMagma/exp/libxml2
+/home/dvenegas/Documents/TESIS/newMagma/exp/lua
+/home/dvenegas/Documents/TESIS/newMagma/exp/openssl
+/home/dvenegas/Documents/TESIS/newMagma/exp/php
+/home/dvenegas/Documents/TESIS/newMagma/exp/poppler
+/home/dvenegas/Documents/TESIS/newMagma/exp/sqlite3

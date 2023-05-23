@@ -1,0 +1,21 @@
+---
+sourceLocationPrefix: "/home/dvenegas/Documents/TESIS/newMagma/exp/libpng/repo"
+unicodeNewlines: false
+columnKind: "utf8"
+inProgress:
+  primaryLanguage: "cpp"
+  installedExtractors:
+    cpp:
+    - "file:///home/dvenegas/codeql-home/codeql2.1.3/cpp/"
+    csharp:
+    - "file:///home/dvenegas/codeql-home/codeql2.1.3/csharp/"
+    go:
+    - "file:///home/dvenegas/codeql-home/codeql2.1.3/go/"
+    java:
+    - "file:///home/dvenegas/codeql-home/codeql2.1.3/java/"
+    javascript:
+    - "file:///home/dvenegas/codeql-home/codeql2.1.3/javascript/"
+    python:
+    - "file:///home/dvenegas/codeql-home/codeql2.1.3/python/"
+    xml:
+    - "file:///home/dvenegas/codeql-home/codeql2.1.3/xml/"
